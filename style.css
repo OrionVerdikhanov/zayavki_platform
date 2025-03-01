@@ -1,0 +1,306 @@
+/* style.css */
+
+/* Объявляем CSS-переменные для основных цветов и параметров */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --accent-color: #27ae60;
+  --hover-color: #2ecc71;
+  --text-color: #333;
+  --background-color: #ecf0f1;
+  --header-bg: #2c3e50;
+  --footer-bg: #2c3e50;
+  --nav-bg: #34495e;
+  --card-bg: #ffffff;
+  --border-radius: 8px;
+  --transition-duration: 0.3s;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header с анимацией появления */
+header {
+  background: var(--header-bg);
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  animation: slideDown 0.5s ease-out;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+header h2 {
+  font-size: 1.2rem;
+  color: #bdc3c7;
+}
+
+/* Footer */
+footer {
+  background: var(--footer-bg);
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+}
+
+/* Навигация */
+nav {
+  background: var(--nav-bg);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+nav ul li {
+  margin: 5px 15px;
+}
+nav ul li a {
+  display: inline-block;
+  padding: 10px 16px;
+  color: #ecf0f1;
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+  transition: background var(--transition-duration);
+  text-decoration: none;
+}
+nav ul li a:hover {
+  background: var(--accent-color);
+}
+
+/* Основной контейнер */
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 30px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Обёртка для таблиц (адаптивная горизонтальная прокрутка) */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+/* Форма фильтрации */
+.filter-form {
+  background: #f7f9fa;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+}
+.filter-form form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+}
+.filter-form .filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  flex: 1;
+}
+.filter-form label {
+  flex: 1 1 180px;
+  font-weight: 600;
+}
+.filter-form input[type="date"],
+.filter-form input[type="text"],
+.filter-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-duration);
+}
+.filter-form input[type="date"]:focus,
+.filter-form input[type="text"]:focus,
+.filter-form select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+.filter-form input[type="submit"] {
+  padding: 10px 16px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-duration);
+}
+.filter-form input[type="submit"]:hover {
+  background: var(--accent-color);
+}
+
+/* Таблицы */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+table, th, td {
+  border: 1px solid #ddd;
+}
+th, td {
+  padding: 12px;
+  text-align: center;
+  transition: background var(--transition-duration);
+}
+th {
+  background: #f2f2f2;
+}
+table.details th {
+  background: #e6e6e6;
+}
+table tr:hover td {
+  background: #f9f9f9;
+}
+
+/* Пагинация */
+.pagination {
+  text-align: center;
+  margin: 20px 0;
+}
+.pagination a {
+  margin: 0 5px;
+  padding: 10px 14px;
+  text-decoration: none;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-duration);
+}
+.pagination a:hover {
+  background: var(--accent-color);
+}
+.pagination input {
+  width: 80px;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: var(--border-radius);
+  margin-left: 10px;
+}
+
+/* Формы */
+form {
+  width: 100%;
+  margin: 20px 0;
+}
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+form input[type="text"],
+form input[type="password"],
+form input[type="date"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-duration);
+}
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="date"]:focus,
+form textarea:focus,
+form select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+form input[type="submit"],
+button {
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-duration);
+}
+form input[type="submit"]:hover,
+button:hover {
+  background: var(--accent-color);
+}
+
+/* Контейнер для авторизации */
+.login-container {
+  width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background: var(--card-bg);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Дополнительные функции (кнопки на страницах заявок) */
+.extra-functions {
+  margin-top: 20px;
+  text-align: center;
+}
+.extra-functions button {
+  background: #2980b9;
+  padding: 12px 20px;
+  border: none;
+  color: #fff;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-duration);
+}
+.extra-functions button:hover {
+  background: #3498db;
+}
+
+/* Ссылка для выхода */
+.logout {
+  display: block;
+  text-align: right;
+  margin-right: 20px;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-duration);
+}
+.logout:hover {
+  color: var(--accent-color);
+}
