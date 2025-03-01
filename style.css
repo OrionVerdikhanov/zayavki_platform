@@ -1,6 +1,8 @@
 /* style.css */
 
-/* Объявляем CSS-переменные для основных цветов и параметров */
+/* =========================== */
+/*         ПЕРЕМЕННЫЕ         */
+/* =========================== */
 :root {
   --primary-color: #2c3e50;
   --secondary-color: #34495e;
@@ -17,14 +19,18 @@
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Сброс стилей */
+/* =========================== */
+/*         СБРОС СТИЛЕЙ       */
+/* =========================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
+/* =========================== */
+/*           BODY             */
+/* =========================== */
 body {
   font-family: var(--font-family);
   background: linear-gradient(to right, #e0eafc, #cfdef3);
@@ -32,13 +38,16 @@ body {
   line-height: 1.6;
 }
 
-/* Header с анимацией появления */
+/* =========================== */
+/*          HEADER            */
+/* =========================== */
+/* Анимация «slideDown» для шапки */
 header {
   background: var(--header-bg);
   padding: 20px 0;
   text-align: center;
-  position: relative;
   animation: slideDown 0.5s ease-out;
+  position: relative;
 }
 @keyframes slideDown {
   from { opacity: 0; transform: translateY(-20px); }
@@ -53,8 +62,25 @@ header h2 {
   font-size: 1.2rem;
   color: #bdc3c7;
 }
+.header-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.header-controls a {
+  color: #ecf0f1;
+  margin-left: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-duration);
+}
+.header-controls a:hover {
+  color: var(--accent-color);
+}
 
-/* Footer */
+/* =========================== */
+/*          FOOTER            */
+/* =========================== */
 footer {
   background: var(--footer-bg);
   color: #fff;
@@ -63,7 +89,9 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Навигация */
+/* =========================== */
+/*         НАВИГАЦИЯ          */
+/* =========================== */
 nav {
   background: var(--nav-bg);
 }
@@ -90,7 +118,9 @@ nav ul li a:hover {
   background: var(--accent-color);
 }
 
-/* Основной контейнер */
+/* =========================== */
+/*      ОСНОВНОЙ КОНТЕНТ      */
+/* =========================== */
 main {
   max-width: 1200px;
   margin: 20px auto;
@@ -105,13 +135,17 @@ main {
   to { opacity: 1; }
 }
 
-/* Обёртка для таблиц (адаптивная горизонтальная прокрутка) */
+/* =========================== */
+/*   ОБЁРТКА ДЛЯ ТАБЛИЦ       */
+/* =========================== */
 .table-container {
   overflow-x: auto;
   margin-bottom: 20px;
 }
 
-/* Форма фильтрации */
+/* =========================== */
+/*   ФОРМА ФИЛЬТРА (СЕТКА)     */
+/* =========================== */
 .filter-form {
   background: #f7f9fa;
   padding: 20px;
@@ -127,7 +161,6 @@ main {
 }
 .filter-form .filter-row {
   display: flex;
-  flex-wrap: wrap;
   gap: 15px;
   flex: 1;
 }
@@ -163,7 +196,55 @@ main {
   background: var(--accent-color);
 }
 
-/* Таблицы */
+/* =========================== */
+/*   ФОРМА ФИЛЬТРА В СТРОКУ    */
+/* (для нового inline-фильтра) */
+/* =========================== */
+.filter-form-inline {
+  display: flex;
+  flex-wrap: wrap;       /* Перенос, если не помещается */
+  align-items: flex-end; /* Горизонтальное выравнивание */
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.filter-form-inline label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+.filter-form-inline input[type="date"],
+.filter-form-inline input[type="text"],
+.filter-form-inline select {
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-duration);
+  width: auto; /* Чтобы не растягивалось на всю ширину */
+  min-width: 120px;
+}
+.filter-form-inline input[type="date"]:focus,
+.filter-form-inline input[type="text"]:focus,
+.filter-form-inline select:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+.filter-form-inline button[type="submit"] {
+  height: 2.6em;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-duration);
+  padding: 0 16px;
+}
+.filter-form-inline button[type="submit"]:hover {
+  background: var(--accent-color);
+}
+
+/* =========================== */
+/*          ТАБЛИЦЫ           */
+/* =========================== */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -188,7 +269,9 @@ table tr:hover td {
   background: #f9f9f9;
 }
 
-/* Пагинация */
+/* =========================== */
+/*         ПАГИНАЦИЯ          */
+/* =========================== */
 .pagination {
   text-align: center;
   margin: 20px 0;
@@ -213,7 +296,9 @@ table tr:hover td {
   margin-left: 10px;
 }
 
-/* Формы */
+/* =========================== */
+/*           ФОРМЫ            */
+/* =========================== */
 form {
   width: 100%;
   margin: 20px 0;
@@ -258,7 +343,9 @@ button:hover {
   background: var(--accent-color);
 }
 
-/* Контейнер для авторизации */
+/* =========================== */
+/*     КОНТЕЙНЕР ВХОДА        */
+/* =========================== */
 .login-container {
   width: 400px;
   margin: 100px auto;
@@ -273,7 +360,94 @@ button:hover {
   margin-bottom: 20px;
 }
 
-/* Дополнительные функции (кнопки на страницах заявок) */
+/* =========================== */
+/*      ЛИЧНЫЙ КАБИНЕТ        */
+/* =========================== */
+.profile-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.profile-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =========================== */
+/*        УВЕДОМЛЕНИЯ         */
+/* =========================== */
+/* СТАРЫЕ СТИЛИ (если где-то нужна таблица уведомлений) */
+table.notifications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table.notifications-table,
+table.notifications-table th,
+table.notifications-table td {
+  border: 1px solid #ddd;
+}
+table.notifications-table th,
+table.notifications-table td {
+  padding: 12px;
+  text-align: center;
+}
+table.notifications-table tr.unread {
+  background: #f1f8ff;
+}
+
+/* 
+  Если используется <div class="notifications"><ul>...</ul></div> 
+  (Оставляем для обратной совместимости) 
+*/
+.notifications {
+  background: #f7f9fa;
+  padding: 15px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  max-width: 600px;
+}
+.notifications h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+.notifications ul {
+  list-style: none;
+  padding: 0;
+}
+.notifications li {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  transition: background var(--transition-duration);
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+.notifications li.unread {
+  background: #f1f8ff;
+  font-weight: 600;
+}
+.notifications li a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+}
+.notifications li a:hover {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+/* =========================== */
+/*  ДОПОЛНИТЕЛЬНЫЕ КНОПКИ     */
+/* =========================== */
 .extra-functions {
   margin-top: 20px;
   text-align: center;
@@ -291,7 +465,9 @@ button:hover {
   background: #3498db;
 }
 
-/* Ссылка для выхода */
+/* =========================== */
+/*      ССЫЛКА "ВЫХОД"        */
+/* =========================== */
 .logout {
   display: block;
   text-align: right;
@@ -303,4 +479,153 @@ button:hover {
 }
 .logout:hover {
   color: var(--accent-color);
+}
+
+/* =========================== */
+/* УЛУЧШЕННЫЙ СТИЛЬ ДЛЯ УВЕДОМЛЕНИЙ (БЕЛЛ) */
+/* =========================== */
+.bell-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 20px; /* Отступ колокольчика от края */
+}
+
+.bell-icon {
+  font-size: 1.8rem;
+  color: #fff; /* или другой цвет, если фон шапки светлый */
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+.bell-icon:hover {
+  color: var(--accent-color);
+}
+.bell-icon .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  min-width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+/* Выпадающий список колокольчика */
+.notification-list {
+  display: none; /* скрыт по умолчанию */
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 320px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+.notification-list.active {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Заголовок уведомлений */
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.notification-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+.notification-header .notification-close-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.notification-header .notification-close-btn:hover {
+  color: var(--accent-color);
+}
+
+/* Тело (список) уведомлений */
+.notification-body {
+  max-height: 300px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  padding: 10px;
+}
+.notifications-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.notification-item {
+  background: #fff;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  transition: background 0.2s;
+}
+.notification-item:hover {
+  background: #f2f2f2;
+}
+.notification-item.unread {
+  border-left: 4px solid var(--accent-color);
+  font-weight: 600;
+}
+.notification-item a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+.notification-item a:hover {
+  color: var(--accent-color);
+}
+
+/* Если уведомлений нет */
+.notification-empty {
+  text-align: center;
+  padding: 15px 0;
+  color: #666;
+}
+
+/* Нижняя панель (footer) */
+.notification-footer {
+  background: #fafafa;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  text-align: right;
+}
+.notification-close-btn-footer {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 5px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.notification-close-btn-footer:hover {
+  background: var(--accent-color);
 }
